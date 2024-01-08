@@ -1,16 +1,17 @@
 import express from 'express';
 const router = express.Router();
 
+
 //Array para armazenar os posts 
 let posts = [];
 
 //Rota para exibir formulário de criação de posts
 router.get("/", (req,res) => {
-    res.render('index')
+    res.render('index.ejs');
 });
 
 
-//Roata post para criação de posts novos
+//Rota post para criação de posts novos
 router.post('/posts', (req, res) => {
     const newPost = {
         id: posts.length + 1,
@@ -18,7 +19,7 @@ router.post('/posts', (req, res) => {
     };
 
     posts.push(newPost);
-    res.redirect('/');
+    res.redirect('/posts');
 });
 
 //Exibir os posts criados
@@ -29,4 +30,4 @@ router.get('/posts', (req, res) => {
 
 
 // Exporta o objeto router
-module.exports = router;
+export { router };
