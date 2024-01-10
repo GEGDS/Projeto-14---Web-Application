@@ -4,9 +4,14 @@
 
 <ul>
     <% posts.forEach(post => { %>
-        <li><%= post.content %></li>
-    <% }); %>    
-</ul>
+      <li>
+        <%= post.content %>
+        <form action="/posts/delete/<%= post.id %>" method="post">
+          <button type="submit">Excluir</button>
+        </form>
+      </li>
+    <% }); %>
+  </ul>
 
 
 <%- include("partials/footer.ejs") %>

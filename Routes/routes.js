@@ -15,7 +15,7 @@ router.get("/", (req,res) => {
 router.post('/posts', (req, res) => {
     const newPost = {
         id: posts.length + 1,
-        content: req.body.postContent
+        content: req.body.post
     };
 
     posts.push(newPost);
@@ -26,6 +26,15 @@ router.post('/posts', (req, res) => {
 router.get('/posts', (req, res) => {
     res.render('posts', { posts });
 });
+
+
+//Exclusão posts
+router.post('/posts/delete/:postId', (req, res) => {
+    const postId = req.params.postId;
+    posts = posts.filter(post => post.id !== parseInt(postId));
+    res.redirect('/posts');
+  });
+  
 
 
 
