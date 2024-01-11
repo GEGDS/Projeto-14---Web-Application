@@ -33,10 +33,24 @@ router.post('/posts/delete/:postId', (req, res) => {
     const postId = req.params.postId;
     posts = posts.filter(post => post.id !== parseInt(postId));
     res.redirect('/posts');
+});
+
+//Rotas para editar os posts
+router.get('/posts/edit/:postId', (req, res) => {
+    const postId = req.params.postId;
+    const postToEdit = posts.find(post => post.id === parseInt(postId));
+    res.render('edit', { post: postToEdit });
   });
   
-
-
+  router.post('/posts/edit/:postId', (req, res) => {
+    const postId = req.params.postId;
+    const updatedContent = req.body.updatedContent;
+    const postIndex = posts.findIndex(post => post.id === parseInt(postId));
+    posts[postIndex].content = updatedContent;
+    res.redirect('/posts');
+});
+  
+  
 
 // Exporta o objeto router
 export { router };

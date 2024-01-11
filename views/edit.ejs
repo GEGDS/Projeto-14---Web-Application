@@ -1,0 +1,10 @@
+<%- include("partials/header.ejs") %>
+
+<form action="/posts/edit/<%= post.id %>" method="post">
+    <input type="text" name="updatedContent" value="<%= post.content %>">
+    <button type="submit">Salvar</button>
+  </form>
+  
+
+
+<%- include("partials/footer.ejs") %>

@@ -8,6 +8,7 @@
         <%= post.content %>
         <form action="/posts/delete/<%= post.id %>" method="post">
           <button type="submit">Excluir</button>
+          <a href="/posts/edit/<%= post.id %>">Editar</a>
         </form>
       </li>
     <% }); %>
