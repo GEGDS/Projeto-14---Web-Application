@@ -1,8 +1,9 @@
 <%- include("partials/header.ejs") %>
 
-<h1>Posts: </h1>
+<div class="post-view">
+  <h1>Posts: </h1>
 
-<ul>
+  <ul>
     <% posts.forEach(post => { %>
       <li>
         <%= post.content %>
@@ -14,5 +15,8 @@
     <% }); %>
   </ul>
 
+  <a href="/"><button class="back-btn">Back</button></a>
+
+</div>
 
 <%- include("partials/footer.ejs") %>

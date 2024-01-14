@@ -5,6 +5,8 @@ import path from 'path';
 
 const app = express();
 const port = 3000;
+app.use(express.static('public'));
+
 
 const __dirname = path.dirname(new URL(import.meta.url).pathname); 
 

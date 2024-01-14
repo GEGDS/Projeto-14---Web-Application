@@ -1,10 +1,14 @@
 <%- include("partials/header.ejs") %>
 
-<form action="/posts/edit/<%= post.id %>" method="post">
-    <input type="text" name="updatedContent" value="<%= post.content %>">
-    <button type="submit">Salvar</button>
-  </form>
-  
+  <div class="edit-form">
+    <h1>Edit: </h1>
+    <form action="/posts/edit/<%= post.id %>" method="post">
+      <label for="updatedContent"></label>
+      <textarea id="updatedContent" name="updatedContent" rows="8" cols="60" required><%= post.content %></textarea>
+      <button type="submit">Salvar</button>
+    </form>
+    
+  </div>
 
 
 <%- include("partials/footer.ejs") %>
